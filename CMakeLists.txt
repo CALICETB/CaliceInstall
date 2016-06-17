@@ -105,5 +105,57 @@ ExternalProject_Add( CALICE_RECO
     LIST_SEPARATOR %
 )
 
+# ----- RootTreeWriter package -----
+ExternalProject_Add( ROOTTREEWRITER
+	DEPENDS CALICE_USERLIB CALICE_RECO LABVIEW_CONVERTER
+    SVN_REPOSITORY ${ROOTTREEWRITER_repository}
+    SVN_REVISION ${ROOTTREEWRITER_version}
+    CMAKE_ARGS ${common_cmake_args}
+    PREFIX RootTreeWriter
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/RootTreeWriter
+    LIST_SEPARATOR %
+)
+
+# ----- calice analysis package -----
+ExternalProject_Add( CALICE_ANALYSIS
+	DEPENDS CALICE_USERLIB CALICE_RECO LABVIEW_CONVERTER
+    SVN_REPOSITORY ${CALICE_ANALYSIS_repository}
+    SVN_REVISION ${CALICE_ANALYSIS_version}
+    CMAKE_ARGS ${common_cmake_args}
+    PREFIX calice_analysis
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_analysis
+    LIST_SEPARATOR %
+)
+
+IF( BUILD_CALICE_CALIB )
+
+# ----- calice calib package -----
+ExternalProject_Add( CALICE_CALIB
+	DEPENDS CALICE_USERLIB CALICE_RECO LABVIEW_CONVERTER
+    SVN_REPOSITORY ${CALICE_CALIB_repository}
+    SVN_REVISION ${CALICE_CALIB_version}
+    CMAKE_ARGS ${common_cmake_args}
+    PREFIX calice_calib
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_calib
+    LIST_SEPARATOR %
+)
+
+ENDIF()
+
+IF( BUILD_CALICE_SIM )
+
+# ----- calice sim package -----
+ExternalProject_Add( CALICE_SIM
+	DEPENDS CALICE_USERLIB CALICE_RECO LABVIEW_CONVERTER
+    SVN_REPOSITORY ${CALICE_SIM_repository}
+    SVN_REVISION ${CALICE_SIM_version}
+    CMAKE_ARGS ${common_cmake_args}
+    PREFIX calice_sim
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_sim
+    LIST_SEPARATOR %
+)
+
+ENDIF()
+
 # display some variables and write them to cache
 DISPLAY_STD_VARIABLES()

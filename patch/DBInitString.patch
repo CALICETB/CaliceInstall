@@ -1,0 +1,10 @@
+--- DBInitString.hh	2016-06-17 19:42:58.699649174 +0200
++++ DBInitStringNew.hh	2016-06-18 00:36:21.711546643 +0200
+@@ -6,6 +6,7 @@
+ #include <sstream>
+ 
+ static const std::string DBInitString() {
++  std::string ret = "";
+ #ifndef DB_INIT_STRING
+   throw std::invalid_argument( "This code needs to be compiled with -DDB_INIT_STRING=\"<DB init string>\" in order to be functional" );
+ #else

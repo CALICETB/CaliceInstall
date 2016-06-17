@@ -1,6 +1,6 @@
---- DBInitString.hh	2016-06-17 19:42:58.699649174 +0200
-+++ DBInitStringNew.hh	2016-06-18 00:36:21.711546643 +0200
-@@ -6,6 +6,7 @@
+--- DBInitString.hh	2016-06-18 00:47:31.075542744 +0200
++++ DBInitStringNew.hh	2016-06-18 00:47:01.711542915 +0200
+@@ -6,10 +6,11 @@
  #include <sstream>
  
  static const std::string DBInitString() {
@@ -8,3 +8,8 @@
  #ifndef DB_INIT_STRING
    throw std::invalid_argument( "This code needs to be compiled with -DDB_INIT_STRING=\"<DB init string>\" in order to be functional" );
  #else
+-  std::string ret = DB_INIT_STRING ;
++  ret = DB_INIT_STRING ;
+   if ( strcmp( ret.c_str(), "" ) == 0 )
+     throw std::runtime_error( "This code has been compiled with -DDB_INIT_STRING=\"\". A valid argument at compile time is mandatory for this code to work" );
+ #endif

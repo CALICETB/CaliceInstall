@@ -26,13 +26,13 @@ SET( CALICE_CALIB_version          "-rHEAD" )
 SET( CALICE_SIM_version            "-rHEAD" )
 
 # ----- download settings -----
-SET( CALICE_USERLIB_repository      "https://svnsrv.desy.de/desy/calice/calice_userlib/trunk" )
-SET( CALICE_RECO_repository         "https://svnsrv.desy.de/desy/calice/calice_reco/trunk" )
-SET( ROOTTREEWRITER_repository      "https://svnsrv.desy.de/desy/calice/calice_tools/RootTreeWriter/trunk" )
-SET( LABVIEW_CONVERTER_repository   "https://svnsrv.desy.de/desy/calice/calice_tools/labview-converter/trunk" )
-SET( CALICE_ANALYSIS_repository     "https://svnsrv.desy.de/desy/calice/calice_analysis/trunk" )
-SET( CALICE_CALIB_repository        "https://svnsrv.desy.de/desy/calice/calice_calib/trunk" )
-SET( CALICE_SIM_repository          "https://svnsrv.desy.de/desy/calice/calice_sim/trunk" )
+SET( CALICE_USERLIB_repository      "https://svnsrv.desy.de/public/calice/calice_userlib/trunk" )
+SET( CALICE_RECO_repository         "https://svnsrv.desy.de/public/calice/calice_reco/trunk" )
+SET( ROOTTREEWRITER_repository      "https://svnsrv.desy.de/public/calice/calice_tools/RootTreeWriter/trunk" )
+SET( LABVIEW_CONVERTER_repository   "https://svnsrv.desy.de/public/calice/calice_tools/labview-converter/trunk" )
+SET( CALICE_ANALYSIS_repository     "https://svnsrv.desy.de/public/calice/calice_analysis/trunk" )
+SET( CALICE_CALIB_repository        "https://svnsrv.desy.de/public/calice/calice_calib/trunk" )
+SET( CALICE_SIM_repository          "https://svnsrv.desy.de/public/calice/calice_sim/trunk" )
 
 # ----- dependencies -----
 FIND_PACKAGE( ILCUTIL COMPONENTS ILCSOFT_CMAKE_MODULES QUIET )

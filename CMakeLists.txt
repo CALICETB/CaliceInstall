@@ -78,6 +78,7 @@ MESSAGE( STATUS "BUILD_CALICE_CALIB: ${BUILD_CALICE_CALIB}" )
 ExternalProject_Add( CALICE_USERLIB
     SVN_REPOSITORY ${CALICE_USERLIB_repository}
     SVN_REVISION ${CALICE_USERLIB_version}
+    PATCH_COMMAND patch ${CMAKE_CURRENT_SOURCE_DIR}/calice_userlib/include/DBInitString.hh < ${PROJECT_SOURCE_DIR}/patch/DBInitString.patch
     CMAKE_ARGS ${common_cmake_args}
     PREFIX calice_userlib
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_userlib

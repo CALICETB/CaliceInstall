@@ -218,5 +218,7 @@ ExternalProject_Add( CALICE_SIM
 
 ENDIF()
 
+MESSAGE( STATUS "Calice software will be installed in ${CMAKE_INSTALL_PREFIX}" )
+
 # display some variables and write them to cache
 DISPLAY_STD_VARIABLES()

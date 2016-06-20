@@ -165,7 +165,7 @@ ExternalProject_Add( CALICE_ANALYSIS
 	DEPENDS CALICE_USERLIB CALICE_RECO LABVIEW_CONVERTER
     SVN_REPOSITORY ${CALICE_ANALYSIS_repository}
     SVN_REVISION ${CALICE_ANALYSIS_version}
-    PATCH_COMMAND sed -i "s#BOOSTDIR#${BOOST_ROOT}#g" && patch ${CMAKE_CURRENT_SOURCE_DIR}/calice_analysis/addonProcs/cmake/FindBOOST.cmake < ${PROJECT_SOURCE_DIR}/patch/FindBOOST.patch
+    PATCH_COMMAND sed -i "s#BOOSTDIR#${BOOST_ROOT}#g" ${PROJECT_SOURCE_DIR}/patch/FindBOOST.patch && patch ${CMAKE_CURRENT_SOURCE_DIR}/calice_analysis/addonProcs/cmake/FindBOOST.cmake < ${PROJECT_SOURCE_DIR}/patch/FindBOOST.patch
     CMAKE_ARGS ${common_cmake_args}
     PREFIX calice_analysis
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_analysis

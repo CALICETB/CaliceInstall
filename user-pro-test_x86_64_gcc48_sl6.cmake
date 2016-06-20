@@ -27,7 +27,7 @@ CACHE PATH "CMAKE_PREFIX_PATH" FORCE )
 # calice code installation directory
 
 SET( CALICE_HOME 
-     "${PROJECT_SOURCE_DIR}"
+     "${CMAKE_CURRENT_SOURCE_DIR}"
      CACHE PATH "Path to CALICE Software" FORCE )
 MARK_AS_ADVANCED( CALICE_HOME )
 

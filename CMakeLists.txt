@@ -95,7 +95,7 @@ ExternalProject_Add( CALICE_USERLIB
     SVN_REPOSITORY ${CALICE_USERLIB_repository}
     SVN_REVISION ${CALICE_USERLIB_version}
     PATCH_COMMAND ""
-    CMAKE_ARGS ${common_cmake_args} -DDB_INIT_STRING="flccaldb02.desy.de:calice:caliceon:Delice.1:3306"
+    CMAKE_ARGS ${common_cmake_args}
     PREFIX calice_userlib
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_userlib
     LIST_SEPARATOR %
@@ -116,7 +116,7 @@ ExternalProject_Add( CALICE_RECO
 	DEPENDS CALICE_USERLIB LABVIEW_CONVERTER
     SVN_REPOSITORY ${CALICE_RECO_repository}
     SVN_REVISION ${CALICE_RECO_version}
-    CMAKE_ARGS ${common_cmake_args} -DDB_INIT_STRING="flccaldb02.desy.de:calice:caliceon:Delice.1:3306"
+    CMAKE_ARGS ${common_cmake_args}
     PREFIX calice_reco
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_reco
     LIST_SEPARATOR %

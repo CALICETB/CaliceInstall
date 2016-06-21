@@ -97,7 +97,7 @@ ExternalProject_Add( CALICE_USERLIB
     SVN_REPOSITORY ${CALICE_USERLIB_repository}
     SVN_REVISION ${CALICE_USERLIB_version}
     PATCH_COMMAND patch ${CMAKE_CURRENT_SOURCE_DIR}/calice_userlib/include/DBInitString.hh < ${PROJECT_SOURCE_DIR}/patch/DBInitString.patch
-    CMAKE_ARGS ${common_cmake_args} -DDB_INIT_STRING=flccaldb02.desy.de:calice:caliceon:Delice.1:3306
+    CMAKE_ARGS ${common_cmake_args} -DDB_INIT_STRING="flccaldb02.desy.de:calice:caliceon:Delice.1:3306"
     PREFIX calice_userlib
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_userlib
     LIST_SEPARATOR %
@@ -108,7 +108,8 @@ ELSE()
 ExternalProject_Add( CALICE_USERLIB
     SVN_REPOSITORY ${CALICE_USERLIB_repository}
     SVN_REVISION ${CALICE_USERLIB_version}
-    CMAKE_ARGS ${common_cmake_args}
+    PATCH_COMMAND ""
+    CMAKE_ARGS ${common_cmake_args} -DDB_INIT_STRING="flccaldb02.desy.de:calice:caliceon:Delice.1:3306"
     PREFIX calice_userlib
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_userlib
     LIST_SEPARATOR %
@@ -150,12 +151,10 @@ ExternalProject_Add( ROOTTREEWRITER
 
 # ----- calice analysis package -----
 
-IF( ${LINUX_DISTRO} MATCHES "Ubuntu" )
-
 IF( NOT BOOST_ROOT )
 SET( BOOST_ROOT $ENV{BOOST_ROOT} )
 IF( NOT BOOST_ROOT )
-MESSAGE( FATAL_ERROR "BOOST_ROOT was not found in the environment. Please precise BOOST_ROOT" )
+MESSAGE( FATAL_ERROR "BOOST_ROOT was not found in the environment. Please precise BOOST_ROOT with -DBOOST_ROOT="" or set it by export BOOST_ROOT=""" )
 ENDIF()
 ENDIF()
 
@@ -165,28 +164,12 @@ ExternalProject_Add( CALICE_ANALYSIS
 	DEPENDS CALICE_USERLIB CALICE_RECO LABVIEW_CONVERTER
     SVN_REPOSITORY ${CALICE_ANALYSIS_repository}
     SVN_REVISION ${CALICE_ANALYSIS_version}
-    PATCH_COMMAND sed -i "s#BOOSTDIR#${BOOST_ROOT}#g" ${PROJECT_SOURCE_DIR}/patch/FindBOOST.patch && patch ${CMAKE_CURRENT_SOURCE_DIR}/calice_analysis/addonProcs/cmake/FindBOOST.cmake < ${PROJECT_SOURCE_DIR}/patch/FindBOOST.patch
+    PATCH_COMMAND cp ${PROJECT_SOURCE_DIR}/patch/FindBOOST.patch /tmp/FindBOOST_temp.patch && sed -i "s#BOOST_ROOT#${BOOST_ROOT}#g" /tmp/FindBOOST_temp.patch && patch ${CMAKE_CURRENT_SOURCE_DIR}/calice_analysis/addonProcs/cmake/FindBOOST.cmake < /tmp/FindBOOST_temp.patch && rm /tmp/FindBOOST_temp.patch
     CMAKE_ARGS ${common_cmake_args}
     PREFIX calice_analysis
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_analysis
     LIST_SEPARATOR %
 )
-
-ELSE()
-
-ExternalProject_Add( CALICE_ANALYSIS
-        DEPENDS CALICE_USERLIB CALICE_RECO LABVIEW_CONVERTER
-    SVN_REPOSITORY ${CALICE_ANALYSIS_repository}
-    SVN_REVISION ${CALICE_ANALYSIS_version}
-    CMAKE_ARGS ${common_cmake_args}
-    PREFIX calice_analysis
-    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_analysis
-    LIST_SEPARATOR %
-)
-
-ENDIF()
-
-
 
 IF( BUILD_CALICE_CALIB )
 

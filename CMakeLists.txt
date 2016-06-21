@@ -90,21 +90,7 @@ MESSAGE( STATUS "BUILD_CALICE_CALIB: ${BUILD_CALICE_CALIB}" )
 
 # ----------------------------------------------------------------------------
 
-IF( ${LINUX_DISTRO} MATCHES "Ubuntu" )
-
 # ----- calice userlib package -----
-ExternalProject_Add( CALICE_USERLIB
-    SVN_REPOSITORY ${CALICE_USERLIB_repository}
-    SVN_REVISION ${CALICE_USERLIB_version}
-    PATCH_COMMAND patch ${CMAKE_CURRENT_SOURCE_DIR}/calice_userlib/include/DBInitString.hh < ${PROJECT_SOURCE_DIR}/patch/DBInitString.patch
-    CMAKE_ARGS ${common_cmake_args} -DDB_INIT_STRING="flccaldb02.desy.de:calice:caliceon:Delice.1:3306"
-    PREFIX calice_userlib
-    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_userlib
-    LIST_SEPARATOR %
-)
-
-ELSE()
-
 ExternalProject_Add( CALICE_USERLIB
     SVN_REPOSITORY ${CALICE_USERLIB_repository}
     SVN_REVISION ${CALICE_USERLIB_version}
@@ -114,8 +100,6 @@ ExternalProject_Add( CALICE_USERLIB
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_userlib
     LIST_SEPARATOR %
 )
-
-ENDIF()
 
 # ----- labview converter package -----
 ExternalProject_Add( LABVIEW_CONVERTER
@@ -132,7 +116,7 @@ ExternalProject_Add( CALICE_RECO
 	DEPENDS CALICE_USERLIB LABVIEW_CONVERTER
     SVN_REPOSITORY ${CALICE_RECO_repository}
     SVN_REVISION ${CALICE_RECO_version}
-    CMAKE_ARGS ${common_cmake_args}
+    CMAKE_ARGS ${common_cmake_args} -DDB_INIT_STRING="flccaldb02.desy.de:calice:caliceon:Delice.1:3306"
     PREFIX calice_reco
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_reco
     LIST_SEPARATOR %
@@ -154,7 +138,7 @@ ExternalProject_Add( ROOTTREEWRITER
 IF( NOT BOOST_ROOT )
 SET( BOOST_ROOT $ENV{BOOST_ROOT} )
 IF( NOT BOOST_ROOT )
-MESSAGE( FATAL_ERROR "BOOST_ROOT was not found in the environment. Please precise BOOST_ROOT with -DBOOST_ROOT="" or set it by export BOOST_ROOT=""" )
+MESSAGE( FATAL_ERROR "BOOST_ROOT was not found in the environment. Please precise BOOST_ROOT with -DBOOST_ROOT=\"\" or set it by export BOOST_ROOT=\"\"" )
 ENDIF()
 ENDIF()
 

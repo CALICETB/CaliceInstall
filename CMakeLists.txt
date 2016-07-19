@@ -16,14 +16,19 @@ SET( ${PROJECT_NAME}_VERSION_PATCH 0 )
 # Require C++11                                                 #
 #################################################################
 
+OPTION( ENABLE_C++11 "Set to OFF to skip build with c++11" ON )
+MESSAGE( STATUS "ENABLE_C++11: ${ENABLE_C++11}" )
+
 INCLUDE( CheckCXXCompilerFlag )
 
+IF(ENABLE_C++11)
 CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
 
 IF( COMPILER_SUPPORTS_CXX11 )
 SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 ELSE()
 MESSAGE( SEND_ERROR "Requires C++11 support. Please upgrade your compiler !" )
+ENDIF()
 ENDIF()
 
 ###############################

@@ -29,6 +29,7 @@ make -jX
 ```
 
 where OPTIONS can be :
+* ENABLE_C++11 [ON/OFF] to build with c++11
 * BUILD_CALICE_SIM [ON/OFF] to install calice_sim package
 * BUILD_CALICE_CALIB [ON/OFF] to install calice_calib package
 

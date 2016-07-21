@@ -193,11 +193,11 @@ ExternalProject_Add( CALICE_SIM
 ENDIF()
 
 # ----- calice ROOT macros package -----
-ExternalProject_Add( CALICE_ROOTMACROS
-    SVN_REPOSITORY ${CALICE_ROOTMACROS_repository}
-    SVN_REVISION ${CALICE_ROOTMACROS_version}
-    LIST_SEPARATOR %
-)
+#ExternalProject_Add( CALICE_ROOTMACROS
+#    SVN_REPOSITORY ${CALICE_ROOTMACROS_repository}
+#    SVN_REVISION ${CALICE_ROOTMACROS_version}
+#    LIST_SEPARATOR %
+#)
 
 MESSAGE( STATUS "Calice software will be installed in ${CMAKE_INSTALL_PREFIX}" )
 

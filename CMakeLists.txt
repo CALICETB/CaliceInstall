@@ -53,7 +53,7 @@ SET( LABVIEW_CONVERTER_repository   "https://svnsrv.desy.de/public/calice/calice
 SET( CALICE_ANALYSIS_repository     "https://svnsrv.desy.de/public/calice/calice_analysis/trunk" )
 SET( CALICE_CALIB_repository        "https://svnsrv.desy.de/public/calice/calice_calib/trunk" )
 SET( CALICE_SIM_repository          "https://svnsrv.desy.de/public/calice/calice_sim/trunk" )
-SET( CALICE_ROOTMACROS_repository   "https://svnsrv.desy.de/public/calice/calice_ROOTmacros/trunk" )
+SET( CALICE_ROOTMACROS_repository   "https://svnsrv.desy.de/public/calice/calice_ROOTmacros" )
 
 # ----- dependencies -----
 FIND_PACKAGE( ILCUTIL COMPONENTS ILCSOFT_CMAKE_MODULES QUIET )
@@ -196,9 +196,6 @@ ENDIF()
 ExternalProject_Add( CALICE_ROOTMACROS
     SVN_REPOSITORY ${CALICE_ROOTMACROS_repository}
     SVN_REVISION ${CALICE_ROOTMACROS_version}
-    CMAKE_ARGS ${common_cmake_args}
-    PREFIX calice_ROOTmacros
-    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_ROOTmacros
     LIST_SEPARATOR %
 )
 

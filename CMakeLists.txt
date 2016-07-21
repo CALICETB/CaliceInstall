@@ -43,6 +43,7 @@ SET( LABVIEW_CONVERTER_version     "-rHEAD" )
 SET( CALICE_ANALYSIS_version       "-rHEAD" )
 SET( CALICE_CALIB_version          "-rHEAD" )
 SET( CALICE_SIM_version            "-rHEAD" )
+SET( CALICE_ROOTMACROS_version     "-rHEAD" )
 
 # ----- download settings -----
 SET( CALICE_USERLIB_repository      "https://svnsrv.desy.de/public/calice/calice_userlib/trunk" )
@@ -52,6 +53,7 @@ SET( LABVIEW_CONVERTER_repository   "https://svnsrv.desy.de/public/calice/calice
 SET( CALICE_ANALYSIS_repository     "https://svnsrv.desy.de/public/calice/calice_analysis/trunk" )
 SET( CALICE_CALIB_repository        "https://svnsrv.desy.de/public/calice/calice_calib/trunk" )
 SET( CALICE_SIM_repository          "https://svnsrv.desy.de/public/calice/calice_sim/trunk" )
+SET( CALICE_ROOTMACROS_repository   "https://svnsrv.desy.de/public/calice/calice_ROOTmacros/trunk" )
 
 # ----- dependencies -----
 FIND_PACKAGE( ILCUTIL COMPONENTS ILCSOFT_CMAKE_MODULES QUIET )
@@ -87,10 +89,10 @@ INCLUDE( DetectDistribution )
 
 # ----- package options -----------------------------------------------------------------------
 
-OPTION( BUILD_CALICE_SIM "Set to OFF to skip build/install calice sim package" OFF )
+OPTION( BUILD_CALICE_SIM "Set to OFF to skip build/install calice sim package" ON )
 MESSAGE( STATUS "BUILD_CALICE_SIM: ${BUILD_CALICE_SIM}" )
 
-OPTION( BUILD_CALICE_CALIB "Set to OFF to skip build/install calice calib package" OFF )
+OPTION( BUILD_CALICE_CALIB "Set to OFF to skip build/install calice calib package" ON )
 MESSAGE( STATUS "BUILD_CALICE_CALIB: ${BUILD_CALICE_CALIB}" )
 
 # ----------------------------------------------------------------------------
@@ -189,6 +191,16 @@ ExternalProject_Add( CALICE_SIM
 )
 
 ENDIF()
+
+# ----- calice ROOT macros package -----
+ExternalProject_Add( CALICE_ROOTMACROS
+    SVN_REPOSITORY ${CALICE_ROOTMACROS_repository}
+    SVN_REVISION ${CALICE_ROOTMACROS_version}
+    CMAKE_ARGS ${common_cmake_args}
+    PREFIX calice_ROOTmacros
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_ROOTmacros
+    LIST_SEPARATOR %
+)
 
 MESSAGE( STATUS "Calice software will be installed in ${CMAKE_INSTALL_PREFIX}" )
 

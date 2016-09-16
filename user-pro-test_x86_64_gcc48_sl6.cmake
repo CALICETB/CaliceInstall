@@ -62,7 +62,7 @@ SET( RAW2CALOHIT_HOME "${CALICE_HOME}/calice_reco/raw2calohit/cmake"
 SET( CLUSTERING_HOME "${CALICE_HOME}/calice_reco/clustering/cmake"
      CACHE PATH "Path to calice_reco/clustering" FORCE )
 
-SET( LABVIEW2LCIO_DIR "${CALICE_HOME}/labview-converter/raw2lcio/cmake"
+SET( LABVIEW2LCIO_DIR "${CALICE_HOME}/labview_converter/raw2lcio/cmake"
      CACHE PATH "Path to labview_converter" FORCE )
 
 SET( CELLGEOMETRY_DIR "${CALICE_HOME}/calice_reco/cellGeometry/cmake"

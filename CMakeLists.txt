@@ -110,6 +110,7 @@ ExternalProject_Add( CALICE_USERLIB
 
 # ----- labview converter package -----
 ExternalProject_Add( LABVIEW_CONVERTER
+	DEPENDS CALICE_USERLIB
     SVN_REPOSITORY ${LABVIEW_CONVERTER_repository}
     SVN_REVISION ${LABVIEW_CONVERTER_version}
     CMAKE_ARGS ${common_cmake_args}

@@ -33,27 +33,27 @@ ENDIF()
 
 ###############################
 # versions of CALICE subpackages
-# don't forget to update when releasing 
+# don't forget to update when releasing
 # e.g. SET( CALICE_USERLIB_version "v01-00-00" )
 
-SET( CALICE_USERLIB_version        "-rHEAD" )
-SET( CALICE_RECO_version           "-rHEAD" )
-SET( ROOTTREEWRITER_version        "-rHEAD" )
-SET( LABVIEW_CONVERTER_version     "-rHEAD" )
-SET( CALICE_ANALYSIS_version       "-rHEAD" )
-SET( CALICE_CALIB_version          "-rHEAD" )
-SET( CALICE_SIM_version            "-rHEAD" )
-SET( CALICE_ROOTMACROS_version     "-rHEAD" )
+SET( CALICE_USERLIB_version        "master" )
+SET( CALICE_RECO_version           "master" )
+SET( ROOTTREEWRITER_version        "master" )
+SET( LABVIEW_CONVERTER_version     "master" )
+SET( CALICE_ANALYSIS_version       "master" )
+SET( CALICE_CALIB_version          "master" )
+SET( CALICE_SIM_version            "master" )
+SET( CALICE_ROOTMACROS_version     "master" )
 
 # ----- download settings -----
-SET( CALICE_USERLIB_repository      "https://svnsrv.desy.de/public/calice/calice_userlib/trunk" )
-SET( CALICE_RECO_repository         "https://svnsrv.desy.de/public/calice/calice_reco/trunk" )
-SET( ROOTTREEWRITER_repository      "https://svnsrv.desy.de/public/calice/calice_tools/RootTreeWriter/trunk" )
-SET( LABVIEW_CONVERTER_repository   "https://svnsrv.desy.de/public/calice/calice_tools/labview_converter/trunk" )
-SET( CALICE_ANALYSIS_repository     "https://svnsrv.desy.de/public/calice/calice_analysis/trunk" )
-SET( CALICE_CALIB_repository        "https://svnsrv.desy.de/public/calice/calice_calib/trunk" )
-SET( CALICE_SIM_repository          "https://svnsrv.desy.de/public/calice/calice_sim/trunk" )
-SET( CALICE_ROOTMACROS_repository   "https://svnsrv.desy.de/public/calice/calice_ROOTmacros" )
+SET( CALICE_USERLIB_repository      "https://stash.desy.de/scm/calice/calice_userlib.git" )
+SET( CALICE_RECO_repository         "https://stash.desy.de/scm/calice/calice_reco.git" )
+SET( ROOTTREEWRITER_repository      "https://stash.desy.de/scm/calice/RootTreeWriter.git" )
+SET( LABVIEW_CONVERTER_repository   "https://stash.desy.de/scm/calice/labview_converter.git" )
+SET( CALICE_ANALYSIS_repository     "https://stash.desy.de/scm/calice/calice_analysis.git" )
+SET( CALICE_CALIB_repository        "https://stash.desy.de/scm/calice/calice_calib.git" )
+SET( CALICE_SIM_repository          "https://stash.desy.de/scm/calice/calice_sim.git" )
+SET( CALICE_ROOTMACROS_repository   "https://stash.desy.de/scm/calice/calice_ROOTmacros.git" )
 
 # ----- dependencies -----
 FIND_PACKAGE( ILCUTIL COMPONENTS ILCSOFT_CMAKE_MODULES QUIET )
@@ -99,8 +99,9 @@ MESSAGE( STATUS "BUILD_CALICE_CALIB: ${BUILD_CALICE_CALIB}" )
 
 # ----- calice userlib package -----
 ExternalProject_Add( CALICE_USERLIB
-    SVN_REPOSITORY ${CALICE_USERLIB_repository}
-    SVN_REVISION ${CALICE_USERLIB_version}
+    GIT_REPOSITORY ${CALICE_USERLIB_repository}
+    GIT_TAG ${CALICE_USERLIB_version}
+    UPDATE_COMMAND ""
     PATCH_COMMAND ""
     CMAKE_ARGS ${common_cmake_args}
     PREFIX calice_userlib
@@ -111,8 +112,10 @@ ExternalProject_Add( CALICE_USERLIB
 # ----- labview converter package -----
 ExternalProject_Add( LABVIEW_CONVERTER
 	DEPENDS CALICE_USERLIB
-    SVN_REPOSITORY ${LABVIEW_CONVERTER_repository}
-    SVN_REVISION ${LABVIEW_CONVERTER_version}
+    GIT_REPOSITORY ${LABVIEW_CONVERTER_repository}
+    GIT_TAG ${LABVIEW_CONVERTER_version}
+    UPDATE_COMMAND ""
+    PATCH_COMMAND ""
     CMAKE_ARGS ${common_cmake_args}
     PREFIX labview_converter
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/labview_converter
@@ -122,8 +125,10 @@ ExternalProject_Add( LABVIEW_CONVERTER
 # ----- calice reco package -----
 ExternalProject_Add( CALICE_RECO
 	DEPENDS CALICE_USERLIB LABVIEW_CONVERTER
-    SVN_REPOSITORY ${CALICE_RECO_repository}
-    SVN_REVISION ${CALICE_RECO_version}
+    GIT_REPOSITORY ${CALICE_RECO_repository}
+    GIT_TAG ${CALICE_RECO_version}
+    UPDATE_COMMAND ""
+    PATCH_COMMAND ""
     CMAKE_ARGS ${common_cmake_args}
     PREFIX calice_reco
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_reco
@@ -133,8 +138,10 @@ ExternalProject_Add( CALICE_RECO
 # ----- RootTreeWriter package -----
 ExternalProject_Add( ROOTTREEWRITER
 	DEPENDS CALICE_USERLIB CALICE_RECO LABVIEW_CONVERTER
-    SVN_REPOSITORY ${ROOTTREEWRITER_repository}
-    SVN_REVISION ${ROOTTREEWRITER_version}
+    GIT_REPOSITORY ${ROOTTREEWRITER_repository}
+    GIT_TAG ${ROOTTREEWRITER_version}
+    UPDATE_COMMAND ""
+    PATCH_COMMAND ""
     CMAKE_ARGS ${common_cmake_args}
     PREFIX RootTreeWriter
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/RootTreeWriter
@@ -154,9 +161,10 @@ MESSAGE( STATUS "Boost root is ${BOOST_ROOT}" )
 
 ExternalProject_Add( CALICE_ANALYSIS
 	DEPENDS CALICE_USERLIB CALICE_RECO LABVIEW_CONVERTER
-    SVN_REPOSITORY ${CALICE_ANALYSIS_repository}
-    SVN_REVISION ${CALICE_ANALYSIS_version}
-    PATCH_COMMAND cp ${PROJECT_SOURCE_DIR}/patch/FindBOOST.patch /tmp/FindBOOST_temp.patch && sed -i "s#BOOST_ROOT#${BOOST_ROOT}#g" /tmp/FindBOOST_temp.patch && patch -N ${CMAKE_CURRENT_SOURCE_DIR}/calice_analysis/addonProcs/cmake/FindBOOST.cmake < /tmp/FindBOOST_temp.patch && rm /tmp/FindBOOST_temp.patch
+    GIT_REPOSITORY ${CALICE_ANALYSIS_repository}
+    GIT_TAG ${CALICE_ANALYSIS_version}
+    UPDATE_COMMAND ""
+    PATCH_COMMAND ""
     CMAKE_ARGS ${common_cmake_args}
     PREFIX calice_analysis
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_analysis
@@ -168,8 +176,10 @@ IF( BUILD_CALICE_CALIB )
 # ----- calice calib package -----
 ExternalProject_Add( CALICE_CALIB
 	DEPENDS CALICE_USERLIB CALICE_RECO LABVIEW_CONVERTER
-    SVN_REPOSITORY ${CALICE_CALIB_repository}
-    SVN_REVISION ${CALICE_CALIB_version}
+    GIT_REPOSITORY ${CALICE_CALIB_repository}
+    GIT_TAG ${CALICE_CALIB_version}
+    UPDATE_COMMAND ""
+    PATCH_COMMAND ""
     CMAKE_ARGS ${common_cmake_args}
     PREFIX calice_calib
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_calib
@@ -183,8 +193,10 @@ IF( BUILD_CALICE_SIM )
 # ----- calice sim package -----
 ExternalProject_Add( CALICE_SIM
 	DEPENDS CALICE_USERLIB CALICE_RECO LABVIEW_CONVERTER
-    SVN_REPOSITORY ${CALICE_SIM_repository}
-    SVN_REVISION ${CALICE_SIM_version}
+    GIT_REPOSITORY ${CALICE_SIM_repository}
+    GIT_TAG ${CALICE_SIM_version}
+    UPDATE_COMMAND ""
+    PATCH_COMMAND ""
     CMAKE_ARGS ${common_cmake_args}
     PREFIX calice_sim
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_sim
@@ -194,11 +206,16 @@ ExternalProject_Add( CALICE_SIM
 ENDIF()
 
 # ----- calice ROOT macros package -----
-#ExternalProject_Add( CALICE_ROOTMACROS
-#    SVN_REPOSITORY ${CALICE_ROOTMACROS_repository}
-#    SVN_REVISION ${CALICE_ROOTMACROS_version}
-#    LIST_SEPARATOR %
-#)
+ExternalProject_Add( CALICE_ROOTMACROS
+    GIT_REPOSITORY ${CALICE_ROOTMACROS_repository}
+    GIT_TAG ${CALICE_ROOTMACROS_version}
+    UPDATE_COMMAND ""
+    PATCH_COMMAND ""
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND ""
+    INSTALL_COMMAND ""
+    LIST_SEPARATOR %
+)
 
 MESSAGE( STATUS "Calice software will be installed in ${CMAKE_INSTALL_PREFIX}" )
 

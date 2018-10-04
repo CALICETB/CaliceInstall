@@ -3,26 +3,71 @@
 # for the installation located at [ /home/calice/Desktop/ILCSoftInstall/ilcsoft ]
 ################################################################################
 
-SET( ILC_HOME "/home/calice/Desktop/ILCSoftInstall/ilcsoft" CACHE PATH "Path to ILC Software" FORCE)
+SET( ILC_HOME "/cvmfs/ilc.desy.de/sw/x86_64_gcc48_sl6/v01-17-11" CACHE PATH "Path to ILC Software" FORCE)
 MARK_AS_ADVANCED( ILC_HOME )
 
-SET( CMAKE_PREFIX_PATH
-	 ${ILC_HOME}/CLHEP/2.1.4.1;
-	 ${ILC_HOME}/GSL/1.14;
-	 ${ILC_HOME}/xerces/3.1.3;
-	 ${ILC_HOME}/ilcutil/v01-02-01;
-	 ${ILC_HOME}/CED/v01-09-02;
-	 ${ILC_HOME}/QT/4.7.4;
-	 ${ILC_HOME}/CondDBMySQL/CondDBMySQL_ILC-0-9-6;
-	 ${ILC_HOME}/root/5.34.36;
-	 ${ILC_HOME}/MarlinUtil/v01-09;
-	 ${ILC_HOME}/Marlin/v01-08;
-	 ${ILC_HOME}/LCIO/v02-07;
-	 ${ILC_HOME}/lccd/v01-03;
-	 ${ILC_HOME}/gear/v01-05;
-	 ${ILC_HOME}/boost/1.58.0;
-	 ${ILC_HOME}/mysql/5.1.73;
+SET( CMAKE_PREFIX_PATH 
+	${ILC_HOME}/lccd/v01-03-01;
+	${ILC_HOME}/Marlin/v01-09;
+	${ILC_HOME}/MarlinDD4hep/v00-02;
+	${ILC_HOME}/DDMarlinPandora/v00-04;
+	${ILC_HOME}/MarlinUtil/v01-12-01;
+	${ILC_HOME}/Mokka/mokka-08-05;
+	${ILC_HOME}/MarlinReco/v01-16;
+	${ILC_HOME}/PandoraAnalysis/v01-02-01;
+	${ILC_HOME}/PandoraPFANew/v02-09-01;
+	${ILC_HOME}/MarlinPandora/v02-04-00;
+	${ILC_HOME}/LCFIVertex/v00-07-02;
+	${ILC_HOME}/CEDViewer/v01-12;
+	${ILC_HOME}/Overlay/v00-16;
+	${ILC_HOME}/FastJetClustering/v00-03;
+	${ILC_HOME}/MarlinFastJet/v00-03;
+	${ILC_HOME}/LCTuple/v01-06;
+	${ILC_HOME}/MarlinKinfit/v00-04;
+	${ILC_HOME}/MarlinKinfitProcessors/v00-02;
+	${ILC_HOME}/MarlinTrk/v02-02;
+	${ILC_HOME}/KiTrack/v01-07;
+	${ILC_HOME}/KiTrackMarlin/v01-09;
+	${ILC_HOME}/MarlinTrkProcessors/v02-04;
+	${ILC_HOME}/ILDPerformance/v01-01;
+	${ILC_HOME}/Clupatra/v00-14;
+	${ILC_HOME}/Physsim/v00-03;
+	${ILC_HOME}/FCalClusterer/v00-03;
+	${ILC_HOME}/LCFIPlus/v00-06-05;
+	${ILC_HOME}/ForwardTracking/v01-10;
+	${ILC_HOME}/pathfinder/v00-06-01;
+	${ILC_HOME}/MarlinTPC/v01-02;
+	${ILC_HOME}/bbq/v00-01-03;
+	${ILC_HOME}/Garlic/v3.0.4;
+	${ILC_HOME}/RAIDA/v01-07;
+	${ILC_HOME}/KalTest/v02-02;
+	${ILC_HOME}/KalDet/v01-13-03;
+	${ILC_HOME}/GBL/V01-17-01;
+	${ILC_HOME}/xercesc/3.1.2;
+	${ILC_HOME}/DD4hep/v00-16;
+	${ILC_HOME}/lcgeo/v00-08;
+	${ILC_HOME}/aidaTT/v00-04;
+	${ILC_HOME}/DDKalTest/v01-00;
+	${ILC_HOME}/DD4hepExamples/v00-16;
+	${ILC_HOME}/CED/v01-09-02;
+	${ILC_HOME}/lcio/v02-07-03;
+	${ILC_HOME}/gear/v01-06-01;
+	${ILC_HOME}/FastJet/3.2.0;
+	${ILC_HOME}/root/6.08.00;
+	${ILC_HOME}/CLHEP/2.1.4.1;
+	${ILC_HOME}/gsl/2.1;
+	${ILC_HOME}/QT/4.7.4;
+	${ILC_HOME}/geant4/10.01;
+	${ILC_HOME}/CondDBMySQL/CondDBMySQL_ILC-0-9-6;
+	${ILC_HOME}/cernlib/2006;
+	${ILC_HOME}/mysql/5.0.45;
+	${ILC_HOME}/ilcutil/v01-03;
+	/cvmfs/ilc.desy.de/sw/boost/1.58.0;
 CACHE PATH "CMAKE_PREFIX_PATH" FORCE )
+
+
+option(USE_CXX11 "Use cxx11" True)
+option(Boost_NO_BOOST_CMAKE "dont use cmake find module for boost" ON)
 
 # calice code installation directory
 

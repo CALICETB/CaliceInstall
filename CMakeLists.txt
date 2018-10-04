@@ -36,14 +36,18 @@ ENDIF()
 # don't forget to update when releasing
 # e.g. SET( CALICE_USERLIB_version "v01-00-00" )
 
-SET( CALICE_USERLIB_version        "master" )
-SET( CALICE_RECO_version           "master" )
-SET( ROOTTREEWRITER_version        "master" )
-SET( LABVIEW_CONVERTER_version     "master" )
-SET( CALICE_ANALYSIS_version       "master" )
-SET( CALICE_CALIB_version          "master" )
-SET( CALICE_SIM_version            "master" )
+SET( CALICE_USERLIB_version        "v06-09" )
+SET( CALICE_RECO_version           "v06-11" )
+SET( ROOTTREEWRITER_version        "v02-08" )
+SET( LABVIEW_CONVERTER_version     "v01-03" )
+SET( CALICE_ANALYSIS_version       "v01-05" )
+SET( CALICE_CALIB_version          "v01-03" )
+SET( CALICE_SIM_version            "v03-05" )
 SET( CALICE_ROOTMACROS_version     "master" )
+SET( CALICE_STEERING_version       "v01-00" )
+SET( CALICE_DD_TB_version          "v01-00" )
+SET( FLCHCALSOFT_version           "v01-00" )
+SET( CALICE_CDDATA_version         "v01-07" )
 
 # ----- download settings -----
 SET( CALICE_USERLIB_repository      "https://stash.desy.de/scm/calice/calice_userlib.git" )
@@ -54,6 +58,10 @@ SET( CALICE_ANALYSIS_repository     "https://stash.desy.de/scm/calice/calice_ana
 SET( CALICE_CALIB_repository        "https://stash.desy.de/scm/calice/calice_calib.git" )
 SET( CALICE_SIM_repository          "https://stash.desy.de/scm/calice/calice_sim.git" )
 SET( CALICE_ROOTMACROS_repository   "https://stash.desy.de/scm/calice/calice_ROOTmacros.git" )
+SET( CALICE_STEERING_repository     "https://stash.desy.de/scm/calice/calice_steering.git" )
+SET( CALICE_DD_TB_repository        "https://stash.desy.de/scm/calice/calice_dd_testbeams.git" )
+SET( FLCHCALSOFT_repository         "https://stash.desy.de/scm/calice/flchcalsoftware.git" )
+SET( CALICE_CDDATA_repository       "https://stash.desy.de/scm/calice/calice_cddata.git" )
 
 # ----- dependencies -----
 FIND_PACKAGE( ILCUTIL COMPONENTS ILCSOFT_CMAKE_MODULES QUIET )
@@ -216,6 +224,56 @@ ExternalProject_Add( CALICE_ROOTMACROS
     INSTALL_COMMAND ""
     LIST_SEPARATOR %
 )
+
+# ----- calice steering macros package -----
+ExternalProject_Add( CALICE_STEERING
+    GIT_REPOSITORY ${CALICE_STEERING_repository}
+    GIT_TAG ${CALICE_STEERING_version}
+    UPDATE_COMMAND ""
+    PATCH_COMMAND ""
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND ""
+    INSTALL_COMMAND ""
+    LIST_SEPARATOR %
+)
+
+# ----- calice dd testbeams macros package -----
+ExternalProject_Add( CALICE_DD_TB
+    GIT_REPOSITORY ${CALICE_DD_TB_repository}
+    GIT_TAG ${CALICE_DD_TB_version}
+    UPDATE_COMMAND ""
+    PATCH_COMMAND ""
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND ""
+    INSTALL_COMMAND ""
+    LIST_SEPARATOR %
+)
+
+# ----- calice cddata package -----
+ExternalProject_Add( CALICE_CDDATA
+	DEPENDS CALICE_USERLIB CALICE_RECO LABVIEW_CONVERTER
+    GIT_REPOSITORY ${CALICE_CDDATA_repository}
+    GIT_TAG ${CALICE_CDDATA_version}
+    UPDATE_COMMAND ""
+    PATCH_COMMAND ""
+    CMAKE_ARGS ${common_cmake_args}
+    PREFIX calice_cddata
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_cddata
+    LIST_SEPARATOR %
+)
+
+# ----- flchcalsoftware package -----
+ExternalProject_Add( FLCHCALSOFT
+    GIT_REPOSITORY ${FLCHCALSOFT_repository}
+    GIT_TAG ${FLCHCALSOFT_version}
+    UPDATE_COMMAND ""
+    PATCH_COMMAND ""
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND ""
+    INSTALL_COMMAND ""
+    LIST_SEPARATOR %
+)
+
 
 MESSAGE( STATUS "Calice software will be installed in ${CMAKE_INSTALL_PREFIX}" )
 

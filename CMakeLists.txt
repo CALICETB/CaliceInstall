@@ -112,7 +112,7 @@ ExternalProject_Add( CALICE_USERLIB
     UPDATE_COMMAND ""
     PATCH_COMMAND ""
     CMAKE_ARGS ${common_cmake_args}
-    PREFIX calice_userlib
+    PREFIX calice_userlib-prefix
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_userlib
     LIST_SEPARATOR %
 )
@@ -125,7 +125,7 @@ ExternalProject_Add( LABVIEW_CONVERTER
     UPDATE_COMMAND ""
     PATCH_COMMAND ""
     CMAKE_ARGS ${common_cmake_args}
-    PREFIX labview_converter
+    PREFIX labview_converter-prefix
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/labview_converter
     LIST_SEPARATOR %
 )
@@ -138,7 +138,7 @@ ExternalProject_Add( CALICE_RECO
     UPDATE_COMMAND ""
     PATCH_COMMAND ""
     CMAKE_ARGS ${common_cmake_args}
-    PREFIX calice_reco
+    PREFIX calice_reco-prefix
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_reco
     LIST_SEPARATOR %
 )
@@ -151,7 +151,7 @@ ExternalProject_Add( ROOTTREEWRITER
     UPDATE_COMMAND ""
     PATCH_COMMAND ""
     CMAKE_ARGS ${common_cmake_args}
-    PREFIX RootTreeWriter
+    PREFIX RootTreeWriter-prefix
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/RootTreeWriter
     LIST_SEPARATOR %
 )
@@ -174,7 +174,7 @@ ExternalProject_Add( CALICE_ANALYSIS
     UPDATE_COMMAND ""
     PATCH_COMMAND ""
     CMAKE_ARGS ${common_cmake_args}
-    PREFIX calice_analysis
+    PREFIX calice_analysis-prefix
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_analysis
     LIST_SEPARATOR %
 )
@@ -189,7 +189,7 @@ ExternalProject_Add( CALICE_CALIB
     UPDATE_COMMAND ""
     PATCH_COMMAND ""
     CMAKE_ARGS ${common_cmake_args}
-    PREFIX calice_calib
+    PREFIX calice_calib-prefix
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_calib
     LIST_SEPARATOR %
 )
@@ -206,7 +206,7 @@ ExternalProject_Add( CALICE_SIM
     UPDATE_COMMAND ""
     PATCH_COMMAND ""
     CMAKE_ARGS ${common_cmake_args}
-    PREFIX calice_sim
+    PREFIX calice_sim-prefix
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_sim
     LIST_SEPARATOR %
 )
@@ -222,6 +222,8 @@ ExternalProject_Add( CALICE_ROOTMACROS
     CONFIGURE_COMMAND ""
     BUILD_COMMAND ""
     INSTALL_COMMAND ""
+    PREFIX calice_ROOTmacros-prefix
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_ROOTmacros
     LIST_SEPARATOR %
 )
 
@@ -234,6 +236,8 @@ ExternalProject_Add( CALICE_STEERING
     CONFIGURE_COMMAND ""
     BUILD_COMMAND ""
     INSTALL_COMMAND ""
+    PREFIX calice_steering-prefix
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_steering
     LIST_SEPARATOR %
 )
 
@@ -246,6 +250,8 @@ ExternalProject_Add( CALICE_DD_TB
     CONFIGURE_COMMAND ""
     BUILD_COMMAND ""
     INSTALL_COMMAND ""
+    PREFIX calice_dd_testbeams-prefix
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_dd_testbeams
     LIST_SEPARATOR %
 )
 
@@ -257,7 +263,7 @@ ExternalProject_Add( CALICE_CDDATA
     UPDATE_COMMAND ""
     PATCH_COMMAND ""
     CMAKE_ARGS ${common_cmake_args}
-    PREFIX calice_cddata
+    PREFIX calice_cddata-prefix
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_cddata
     LIST_SEPARATOR %
 )
@@ -271,6 +277,8 @@ ExternalProject_Add( FLCHCALSOFT
     CONFIGURE_COMMAND ""
     BUILD_COMMAND ""
     INSTALL_COMMAND ""
+    PREFIX flchcalsoftware-prefix
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/flchcalsoftware
     LIST_SEPARATOR %
 )
 

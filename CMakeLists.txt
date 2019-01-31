@@ -36,18 +36,19 @@ ENDIF()
 # don't forget to update when releasing
 # e.g. SET( CALICE_USERLIB_version "v01-00-00" )
 
-SET( CALICE_USERLIB_version        "v06-09" )
-SET( CALICE_RECO_version           "v06-11" )
-SET( ROOTTREEWRITER_version        "v02-08" )
-SET( LABVIEW_CONVERTER_version     "v01-03" )
-SET( CALICE_ANALYSIS_version       "v01-05" )
-SET( CALICE_CALIB_version          "v01-03" )
-SET( CALICE_SIM_version            "v03-05" )
+SET( CALICE_USERLIB_version        "v06-10" )
+SET( CALICE_RECO_version           "v06-12" )
+SET( ROOTTREEWRITER_version        "v02-09" )
+SET( LABVIEW_CONVERTER_version     "v01-04" )
+SET( CALICE_ANALYSIS_version       "v01-06" )
+SET( CALICE_CALIB_version          "v01-04" )
+SET( CALICE_SIM_version            "v03-06" )
 SET( CALICE_ROOTMACROS_version     "master" )
-SET( CALICE_STEERING_version       "v01-00" )
-SET( CALICE_DD_TB_version          "v01-00" )
-SET( FLCHCALSOFT_version           "v01-00" )
-SET( CALICE_CDDATA_version         "v01-07" )
+SET( CALICE_STEERING_version       "v01-01" )
+SET( CALICE_DD_TB_version          "v01-01" )
+SET( FLCHCALSOFT_version           "master" )
+SET( CALICE_CDDATA_version         "v01-08" )
+SET( CALICE_STANDALONEG4_version   "master" )
 
 # ----- download settings -----
 SET( CALICE_USERLIB_repository      "https://stash.desy.de/scm/calice/calice_userlib.git" )
@@ -62,6 +63,7 @@ SET( CALICE_STEERING_repository     "https://stash.desy.de/scm/calice/calice_ste
 SET( CALICE_DD_TB_repository        "https://stash.desy.de/scm/calice/calice_dd_testbeams.git" )
 SET( FLCHCALSOFT_repository         "https://stash.desy.de/scm/calice/flchcalsoftware.git" )
 SET( CALICE_CDDATA_repository       "https://stash.desy.de/scm/calice/calice_cddata.git" )
+SET( CALICE_STANDALONEG4_repository "https://stash.desy.de/scm/calice/calice_standaloneg4.git" )
 
 # ----- dependencies -----
 FIND_PACKAGE( ILCUTIL COMPONENTS ILCSOFT_CMAKE_MODULES QUIET )
@@ -279,6 +281,20 @@ ExternalProject_Add( FLCHCALSOFT
     INSTALL_COMMAND ""
     PREFIX flchcalsoftware-prefix
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/flchcalsoftware
+    LIST_SEPARATOR %
+)
+
+# ----- g4standalone package -----
+ExternalProject_Add( CALICE_STANDALONEG4
+    GIT_REPOSITORY ${CALICE_STANDALONEG4_repository}
+    GIT_TAG ${CALICE_STANDALONEG4_version}
+    UPDATE_COMMAND ""
+    PATCH_COMMAND ""
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND ""
+    INSTALL_COMMAND ""
+    PREFIX calice_standaloneg4-prefix
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_standaloneg4
     LIST_SEPARATOR %
 )
 

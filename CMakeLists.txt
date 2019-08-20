@@ -36,19 +36,20 @@ ENDIF()
 # don't forget to update when releasing
 # e.g. SET( CALICE_USERLIB_version "v01-00-00" )
 
-SET( CALICE_USERLIB_version        "v06-10" )
-SET( CALICE_RECO_version           "v06-12" )
-SET( ROOTTREEWRITER_version        "v02-09" )
-SET( LABVIEW_CONVERTER_version     "v01-04" )
-SET( CALICE_ANALYSIS_version       "v01-06" )
-SET( CALICE_CALIB_version          "v01-04" )
-SET( CALICE_SIM_version            "v03-06" )
+SET( CALICE_USERLIB_version        "master" )
+SET( CALICE_RECO_version           "master" )
+SET( ROOTTREEWRITER_version        "master" )
+SET( LABVIEW_CONVERTER_version     "master" )
+SET( CALICE_ANALYSIS_version       "master" )
+SET( CALICE_CALIB_version          "master" )
+SET( CALICE_SIM_version            "master" )
 SET( CALICE_ROOTMACROS_version     "master" )
-SET( CALICE_STEERING_version       "v01-01" )
-SET( CALICE_DD_TB_version          "v01-01" )
+SET( CALICE_STEERING_version       "master" )
+SET( CALICE_DD_TB_version          "master" )
 SET( FLCHCALSOFT_version           "master" )
-SET( CALICE_CDDATA_version         "v01-08" )
+SET( CALICE_CDDATA_version         "master" )
 SET( CALICE_STANDALONEG4_version   "master" )
+SET( CALICE_DB_TOOLS_version       "master" )
 
 # ----- download settings -----
 SET( CALICE_USERLIB_repository      "https://stash.desy.de/scm/calice/calice_userlib.git" )
@@ -64,6 +65,7 @@ SET( CALICE_DD_TB_repository        "https://stash.desy.de/scm/calice/calice_dd_
 SET( FLCHCALSOFT_repository         "https://stash.desy.de/scm/calice/flchcalsoftware.git" )
 SET( CALICE_CDDATA_repository       "https://stash.desy.de/scm/calice/calice_cddata.git" )
 SET( CALICE_STANDALONEG4_repository "https://stash.desy.de/scm/calice/calice_standaloneg4.git" )
+SET( CALICE_DB_TOOLS_repository     "https://stash.desy.de/scm/calice/calice_db_tools.git" )
 
 # ----- dependencies -----
 FIND_PACKAGE( ILCUTIL COMPONENTS ILCSOFT_CMAKE_MODULES QUIET )
@@ -155,6 +157,19 @@ ExternalProject_Add( ROOTTREEWRITER
     CMAKE_ARGS ${common_cmake_args}
     PREFIX RootTreeWriter-prefix
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/RootTreeWriter
+    LIST_SEPARATOR %
+)
+
+# ----- RootTreeWriter package -----
+ExternalProject_Add( CALICE_DB_TOOLS
+	DEPENDS CALICE_USERLIB CALICE_RECO LABVIEW_CONVERTER
+    GIT_REPOSITORY ${CALICE_DB_TOOLS_repository}
+    GIT_TAG ${CALICE_DB_TOOLS_version}
+    UPDATE_COMMAND ""
+    PATCH_COMMAND ""
+    CMAKE_ARGS ${common_cmake_args}
+    PREFIX calice_db_tools-prefix
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_db_tools
     LIST_SEPARATOR %
 )
 

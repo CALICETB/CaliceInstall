@@ -10,6 +10,7 @@ calice_sim
 calice_standaloneg4
 calice_steering
 calice_userlib
+calice_pandora
 flchcalsoftware
 labview_converter
 RootTreeWriter

@@ -36,20 +36,21 @@ ENDIF()
 # don't forget to update when releasing
 # e.g. SET( CALICE_USERLIB_version "v01-00-00" )
 
-SET( CALICE_USERLIB_version        "v06-11" )
-SET( CALICE_RECO_version           "v06-13" )
-SET( ROOTTREEWRITER_version        "v02-10-01" )
-SET( LABVIEW_CONVERTER_version     "v01-05" )
-SET( CALICE_ANALYSIS_version       "v01-07-02" )
-SET( CALICE_CALIB_version          "v01-04" )
-SET( CALICE_SIM_version            "v03-07-01" )
+SET( CALICE_USERLIB_version        "master" )
+SET( CALICE_RECO_version           "master" )
+SET( ROOTTREEWRITER_version        "master" )
+SET( LABVIEW_CONVERTER_version     "master" )
+SET( CALICE_ANALYSIS_version       "master" )
+SET( CALICE_CALIB_version          "master" )
+SET( CALICE_SIM_version            "master" )
 SET( CALICE_ROOTMACROS_version     "master" )
-SET( CALICE_STEERING_version       "v01-02-01" )
-SET( CALICE_DD_TB_version          "v01-02-02" )
-SET( FLCHCALSOFT_version           "v01-01" )
-SET( CALICE_CDDATA_version         "v01-09-01" )
-SET( CALICE_STANDALONEG4_version   "v01-01" )
+SET( CALICE_STEERING_version       "master" )
+SET( CALICE_DD_TB_version          "master" )
+SET( FLCHCALSOFT_version           "master" )
+SET( CALICE_CDDATA_version         "master" )
+SET( CALICE_STANDALONEG4_version   "master" )
 SET( CALICE_DB_TOOLS_version       "master" )
+SET( CALICE_PANDORA_version        "master" )
 
 # ----- download settings -----
 SET( CALICE_USERLIB_repository      "https://stash.desy.de/scm/calice/calice_userlib.git" )
@@ -66,6 +67,7 @@ SET( FLCHCALSOFT_repository         "https://stash.desy.de/scm/calice/flchcalsof
 SET( CALICE_CDDATA_repository       "https://stash.desy.de/scm/calice/calice_cddata.git" )
 SET( CALICE_STANDALONEG4_repository "https://stash.desy.de/scm/calice/calice_standaloneg4.git" )
 SET( CALICE_DB_TOOLS_repository     "https://stash.desy.de/scm/calice/calice_db_tools.git" )
+SET( CALICE_PANDORA_repository     "https://stash.desy.de/scm/calice/calice_pandora.git" )
 
 # ----- dependencies -----
 FIND_PACKAGE( ILCUTIL COMPONENTS ILCSOFT_CMAKE_MODULES QUIET )
@@ -106,6 +108,9 @@ MESSAGE( STATUS "BUILD_CALICE_SIM: ${BUILD_CALICE_SIM}" )
 
 OPTION( BUILD_CALICE_CALIB "Set to OFF to skip build/install calice calib package" ON )
 MESSAGE( STATUS "BUILD_CALICE_CALIB: ${BUILD_CALICE_CALIB}" )
+
+OPTION( BUILD_CALICE_PANDORA "Set to OFF to skip build/install calice pandora package" ON )
+MESSAGE( STATUS "BUILD_CALICE_PANDORA: ${BUILD_CALICE_PANDORA}" )
 
 # ----------------------------------------------------------------------------
 
@@ -313,6 +318,20 @@ ExternalProject_Add( CALICE_STANDALONEG4
     LIST_SEPARATOR %
 )
 
+IF( BUILD_CALICE_PANDORA )
+# ----- calice_pandora package -----
+ExternalProject_Add( CALICE_PANDORA
+DEPENDS CALICE_USERLIB
+    GIT_REPOSITORY ${CALICE_PANDORA_repository}
+    GIT_TAG ${CALICE_PANDORA_version}
+    UPDATE_COMMAND ""
+    PATCH_COMMAND ""
+    CMAKE_ARGS ${common_cmake_args}
+    PREFIX calice_pandora-prefix
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_pandora
+    LIST_SEPARATOR %
+)
+ENDIF()
 
 MESSAGE( STATUS "Calice software will be installed in ${CMAKE_INSTALL_PREFIX}" )
 

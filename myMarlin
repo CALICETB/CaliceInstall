@@ -2,7 +2,7 @@
 
 source /cvmfs/ilc.desy.de/sw/x86_64_gcc49_sl6/v02-00-01/init_ilcsoft.sh
 
-MY_INSTALL=/afs/desy.de/group/flc/hcal/calice_soft/v04-13-02/build/myInstall
+MY_INSTALL=/cvmfs/calice.desy.de/HEAD/build/myInstall
 
 export MARLIN_DLL=
 export MARLIN_DLL=${MY_INSTALL}/lib/libuserlib.so

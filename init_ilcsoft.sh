@@ -97,15 +97,17 @@ export LD_LIBRARY_PATH="$GEAR/lib:$LD_LIBRARY_PATH"
 #export DD4hepINSTALL="/cvmfs/ilc.desy.de/sw/x86_64_gcc49_sl6/v02-00-01/DD4hep/v01-07-01"
 #export DD4HEP="/cvmfs/ilc.desy.de/sw/x86_64_gcc49_sl6/v02-00-01/DD4hep/v01-07-01"
 #export DD4hep_DIR="/cvmfs/ilc.desy.de/sw/x86_64_gcc49_sl6/v02-00-01/DD4hep/v01-07-01"
+#export PYTHONPATH="$DD4HEP/python:$DD4HEP/DDCore/python:$PYTHONPATH"
+#export PATH="$DD4HEP/bin:$PATH"
+#export LD_LIBRARY_PATH="$DD4HEP/lib:$LD_LIBRARY_PATH"
 
-export DD4hep_ROOT="/nfs/dust/ilc/group/flchcal/CaliceSoft/DD4hep"
-export DD4hepINSTALL="/nfs/dust/ilc/group/flchcal/CaliceSoft/DD4hep"
-export DD4HEP="/nfs/dust/ilc/group/flchcal/CaliceSoft/DD4hep"
-export DD4hep_DIR="/nfs/dust/ilc/group/flchcal/CaliceSoft/DD4hep"
+export DD4hep_ROOT="/cvmfs/calice.desy.de/DD4hep"
+export DD4hepINSTALL="$DD4hep_ROOT"
+export DD4HEP="$DD4hep_ROOT"
+export DD4hep_DIR="$DD4hep_ROOT"
 export PYTHONPATH="$DD4HEP/python:$DD4HEP/DDCore/python:$PYTHONPATH"
 export PATH="$DD4HEP/bin:$PATH"
 export LD_LIBRARY_PATH="$DD4HEP/lib:$LD_LIBRARY_PATH"
-
 
 #--------------------------------------------------------------------------------
 #     Geant4
@@ -227,10 +229,10 @@ export PATH="$MARLINTPC/bin:$PATH"
 #--------------------------------------------------------------------------------
 #     lcgeo
 #--------------------------------------------------------------------------------
-export lcgeo_DIR="/cvmfs/ilc.desy.de/sw/x86_64_gcc49_sl6/v02-00-01/lcgeo/v00-16-01"
-export PYTHONPATH="$lcgeo_DIR/lib/python:$PYTHONPATH"
-export PATH="$lcgeo_DIR/bin:$PATH"
-export LD_LIBRARY_PATH="$lcgeo_DIR/lib:$LD_LIBRARY_PATH"
+#export lcgeo_DIR="/cvmfs/ilc.desy.de/sw/x86_64_gcc49_sl6/v02-00-01/lcgeo/v00-16-01"
+#export PYTHONPATH="$lcgeo_DIR/lib/python:$PYTHONPATH"
+#export PATH="$lcgeo_DIR/bin:$PATH"
+#export LD_LIBRARY_PATH="$lcgeo_DIR/lib:$LD_LIBRARY_PATH"
 
 
 #--------------------------------------------------------------------------------

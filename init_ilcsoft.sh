@@ -253,6 +253,13 @@ export MYSQL="$MYSQL_HOME"
 export PATH="$MYSQL_HOME/bin:$PATH"
 export LD_LIBRARY_PATH="$MYSQL_HOME/lib64:$MYSQL_HOME/lib:$MYSQL_HOME/lib64/mysql:$MYSQL_HOME/lib/mysql:$LD_LIBRARY_PATH"
 
+#--------------------------------------------------------------------------------
+#     LightGBM
+#--------------------------------------------------------------------------------
+export LIGHTGBM_HOME="/cvmfs/calice.desy.de/lightGBM/v2.3.1"
+export PATH="$LIGHTGBM_HOME/bin:$PATH"
+export LD_LIBRARY_PATH="$LIGHTGBM_HOME/lib:$LD_LIBRARY_PATH"
+
 # --- source GEANT4 INIT script ---
 test -r ${G4ENV_INIT} && { cd $(dirname ${G4ENV_INIT}) ; . ./$(basename ${G4ENV_INIT}) ; cd $OLDPWD ; }
 

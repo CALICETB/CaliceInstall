@@ -96,8 +96,23 @@ MESSAGE( STATUS "BUILD_CALICE_PANDORA: ${BUILD_CALICE_PANDORA}" )
 
 # ----------------------------------------------------------------------------
 
+# ----- flchcalsoftware package -----
+ExternalProject_Add( FLCHCALSOFT
+    GIT_REPOSITORY ${FLCHCALSOFT_repository}
+    GIT_TAG ${FLCHCALSOFT_version}
+    UPDATE_COMMAND ""
+    PATCH_COMMAND ""
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND ""
+    INSTALL_COMMAND ""
+    PREFIX flchcalsoftware-prefix
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/flchcalsoftware
+    LIST_SEPARATOR %
+)
+
 # ----- calice userlib package -----
 ExternalProject_Add( CALICE_USERLIB
+  DEPENDS FLCHCALSOFT
     GIT_REPOSITORY ${CALICE_USERLIB_repository}
     GIT_TAG ${CALICE_USERLIB_version}
     UPDATE_COMMAND ""
@@ -272,29 +287,12 @@ ExternalProject_Add( CALICE_CDDATA
     LIST_SEPARATOR %
 )
 
-# ----- flchcalsoftware package -----
-ExternalProject_Add( FLCHCALSOFT
-    GIT_REPOSITORY ${FLCHCALSOFT_repository}
-    GIT_TAG ${FLCHCALSOFT_version}
-    UPDATE_COMMAND ""
-    PATCH_COMMAND ""
-    CONFIGURE_COMMAND ""
-    BUILD_COMMAND ""
-    INSTALL_COMMAND ""
-    PREFIX flchcalsoftware-prefix
-    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/flchcalsoftware
-    LIST_SEPARATOR %
-)
-
 # ----- g4standalone package -----
 ExternalProject_Add( CALICE_STANDALONEG4
     GIT_REPOSITORY ${CALICE_STANDALONEG4_repository}
     GIT_TAG ${CALICE_STANDALONEG4_version}
     UPDATE_COMMAND ""
     PATCH_COMMAND ""
-    CONFIGURE_COMMAND ""
-    BUILD_COMMAND ""
-    INSTALL_COMMAND ""
     PREFIX calice_standaloneg4-prefix
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_standaloneg4
     LIST_SEPARATOR %

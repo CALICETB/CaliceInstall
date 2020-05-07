@@ -1,7 +1,7 @@
 ########################################################
 # cmake file for building
 # @author Eldwan Brianne
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6 FATAL_ERROR)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.10 FATAL_ERROR)
 ########################################################
 
 # project name
@@ -79,9 +79,12 @@ SET( common_cmake_args
      "-DCMAKE_MODULE_PATH=${CMAKE_MODULE_PATH_FIXED}"
      "-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}"
      "-DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}"
+     "-DCMAKE_CXX_STANDARD=${CMAKE_CXX_STANDARD}"
+     "-DUSE_CXX11=False"
 )
 
 MESSAGE( STATUS "CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}" )
+MESSAGE( STATUS "CMAKE_CXX_STANDARD: ${CMAKE_CXX_STANDARD}" )
 
 # ----- package options -----------------------------------------------------------------------
 
@@ -293,6 +296,7 @@ ExternalProject_Add( CALICE_STANDALONEG4
     GIT_TAG ${CALICE_STANDALONEG4_version}
     UPDATE_COMMAND ""
     PATCH_COMMAND ""
+    CMAKE_ARGS ${common_cmake_args}
     PREFIX calice_standaloneg4-prefix
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_standaloneg4
     LIST_SEPARATOR %

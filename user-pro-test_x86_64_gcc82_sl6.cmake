@@ -66,7 +66,7 @@ set(EIGEN3_DIR "/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01/eigen/3.3.7" CACHE
 # calice code installation directory
 
 SET( CALICE_HOME
-     "/nfs/dust/ilc/user/ebrianne/CaliceSoft/Releases/HEAD_gcc82"
+     "${CMAKE_CURRENT_SOURCE_DIR}"
      CACHE PATH "Path to CALICE Software" FORCE )
 MARK_AS_ADVANCED( CALICE_HOME )
 

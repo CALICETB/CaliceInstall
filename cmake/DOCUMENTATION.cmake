@@ -26,10 +26,10 @@ IF( DOXYGEN_FOUND )
 
     SET (${PROJECT_NAME}_DOC_INSTALL_DIR "doc/${PROJECT_NAME}" CACHE STRING "Installation directory for the documentaion" )
 
-    SET (${PROJECT_NAME}_DOC_AUTOMAKE OFF CACHE BOOL "If set to ON the documentation will be generated with make all" )
+    SET (${PROJECT_NAME}_DOC_AUTOMAKE ON CACHE BOOL "If set to ON the documentation will be generated with make all" )
     MARK_AS_ADVANCED(${PROJECT_NAME}_DOC_AUTOMAKE)
 
-    SET (${PROJECT_NAME}_DOC_INSTALL OFF CACHE BOOL "If set to ON the documentation will be generated with make all" )
+    SET (${PROJECT_NAME}_DOC_INSTALL ON CACHE BOOL "If set to ON the documentation will be generated with make all" )
     MARK_AS_ADVANCED(${PROJECT_NAME}_DOC_INSTALL)
     IF (${PROJECT_NAME}_DOC_INSTALL AND NOT ${PROJECT_NAME}_DOC_AUTOMAKE) 
 	MESSAGE ( WARNING " ${PROJECT_NAME}_DOC_INSTALL forces ${PROJECT_NAME}_DOC_AUTOMAKE=ON")

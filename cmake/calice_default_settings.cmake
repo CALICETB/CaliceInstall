@@ -23,7 +23,6 @@ INCLUDE( ilcsoft_default_rpath_settings )
 INCLUDE( calice_default_cxx_flags )
 #INCLUDE( ilcsoft_build_32bit_compatible )
 
-
 # uninstall target may only be created once per project
 # otherwise problems occur due to duplicate targets. even
 # setting CMAKE_POLICY(SET CMP0002 OLD) causes an error

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-source init_ilcsoft.sh
+source /cvmfs/calice.desy.de/HEAD/x86_64_gcc49_sl6/init_ilcsoft.sh
 
-MY_INSTALL=build/myInstall
+MY_INSTALL=${CALICESOFT}/build/myInstall
 
 export MARLIN_DLL=
 export MARLIN_DLL=${MY_INSTALL}/lib/libuserlib.so

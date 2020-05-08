@@ -1,5 +1,5 @@
 export ILCSOFT=/cvmfs/ilc.desy.de/sw/x86_64_gcc49_sl6/v02-00-01
-export CALICESOFT=/cvmfs/calice.desy.de/HEAD/x86_64_gcc49_sl6
+export CALICESOFT=/cvmfs/calice.desy.de/v04-14/x86_64_gcc49_sl6
 
 # -------------------------------------------------------------------- ---
 

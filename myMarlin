@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /cvmfs/calice.desy.de/HEAD/x86_64_gcc49_sl6/init_ilcsoft.sh
+source /cvmfs/calice.desy.de/v04-14/x86_64_gcc49_sl6/init_ilcsoft.sh
 
 MY_INSTALL=${CALICESOFT}/build/myInstall
 

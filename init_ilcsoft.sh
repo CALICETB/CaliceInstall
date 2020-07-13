@@ -1,5 +1,6 @@
 export ILCSOFT=/cvmfs/ilc.desy.de/sw/x86_64_gcc49_sl6/v02-00-01
-export CALICESOFT=/cvmfs/calice.desy.de/v04-14/x86_64_gcc49_sl6
+export CALICESOFT=/cvmfs/calice.desy.de/v04-14-01/x86_64_gcc49_sl6
+
 
 # -------------------------------------------------------------------- ---
 
@@ -270,6 +271,6 @@ export LIBGL_ALWAYS_INDIRECT=1
 #--------------------------------------------------------------------------------
 #     flchcalsoftware
 #--------------------------------------------------------------------------------
-export FLCHCALSOFT_HOME="/cvmfs/calice.desy.de/HEAD/x86_64_gcc49_sl6/flchcalsoftware"
+export FLCHCALSOFT_HOME="/cvmfs/calice.desy.de/v04-14-01/x86_64_gcc49_sl6/flchcalsoftware"
 export PATH="$FLCHCALSOFT_HOME/myInstall/bin:$PATH"
 export LD_LIBRARY_PATH="$FLCHCALSOFT_HOME/myInstall/lib:$LD_LIBRARY_PATH"

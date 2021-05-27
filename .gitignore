@@ -14,3 +14,6 @@ calice_pandora
 flchcalsoftware
 labview_converter
 RootTreeWriter
+calice_ml
+build.sh
+update.sh

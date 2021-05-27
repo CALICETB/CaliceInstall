@@ -3,7 +3,7 @@
 # for the installation located at [ /cvmfs/ilc.desy.de/sw/x86_64_gcc49_sl6/v02-00-01 ]
 ################################################################################
 
-SET( ILC_HOME "/cvmfs/ilc.desy.de/sw/x86_64_gcc49_sl6/v02-00-01" CACHE PATH "Path to ILC Software" FORCE)
+SET( ILC_HOME "/cvmfs/ilc.desy.de/sw/x86_64_gcc49_sl6/v02-00-02" CACHE PATH "Path to ILC Software" FORCE)
 MARK_AS_ADVANCED( ILC_HOME )
 
 SET( CMAKE_PREFIX_PATH
@@ -12,11 +12,11 @@ SET( CMAKE_PREFIX_PATH
 	${ILC_HOME}/MarlinDD4hep/v00-06;
 	${ILC_HOME}/DDMarlinPandora/v00-10;
 	${ILC_HOME}/MarlinUtil/v01-15;
-	${ILC_HOME}/MarlinReco/v01-24-01;
+	${ILC_HOME}/MarlinReco/v01-25;
 	${ILC_HOME}/PandoraAnalysis/v02-00-00;
 	${ILC_HOME}/PandoraPFANew/v03-09-00;
 	${ILC_HOME}/LCFIVertex/v00-07-04;
-	${ILC_HOME}/CEDViewer/v01-15;
+	${ILC_HOME}/CEDViewer/v01-16;
 	${ILC_HOME}/Overlay/v00-21;
 	${ILC_HOME}/MarlinFastJet/v00-05-01;
 	${ILC_HOME}/LCTuple/v01-11;
@@ -29,7 +29,7 @@ SET( CMAKE_PREFIX_PATH
 	${ILC_HOME}/ILDPerformance/v01-06;
 	${ILC_HOME}/Clupatra/v01-03;
 	${ILC_HOME}/Physsim/v00-04-01;
-	${ILC_HOME}/LCFIPlus/v00-06-08;
+	${ILC_HOME}/LCFIPlus/v00-06-09;
 	${ILC_HOME}/FCalClusterer/v01-00;
 	${ILC_HOME}/ForwardTracking/v01-13;
 	${ILC_HOME}/ConformalTracking/v01-07;
@@ -39,17 +39,17 @@ SET( CMAKE_PREFIX_PATH
 	${ILC_HOME}/bbq/v00-01-03;
 	${ILC_HOME}/Garlic/v03-01;
 	${ILC_HOME}/RAIDA/v01-09;
-	${ILC_HOME}/KalTest/v02-04;
+	${ILC_HOME}/KalTest/v02-05;
 	${ILC_HOME}/KalDet/v01-14-01;
 	${ILC_HOME}/GBL/V02-01-01;
 	${ILC_HOME}/xercesc/3.1.4;
-	${ILC_HOME}/DD4hep/v01-07-01;
-	${ILC_HOME}/lcgeo/v00-16-01;
+	${ILC_HOME}/DD4hep/v01-07-02;
+	${ILC_HOME}/lcgeo/v00-16-03;
 	${ILC_HOME}/aidaTT/v00-09;
 	${ILC_HOME}/DDKalTest/v01-05;
-	${ILC_HOME}/DD4hepExamples/v01-07-01;
+	${ILC_HOME}/DD4hepExamples/v01-07-02;
 	${ILC_HOME}/CED/v01-09-02;
-	${ILC_HOME}/lcio/v02-12;
+	${ILC_HOME}/lcio/v02-12-01;
 	${ILC_HOME}/gear/v01-08;
 	${ILC_HOME}/FastJet/3.2.1;
 	${ILC_HOME}/root/6.08.06;

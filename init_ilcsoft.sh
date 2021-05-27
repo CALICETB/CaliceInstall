@@ -1,7 +1,6 @@
 export ILCSOFT=/cvmfs/ilc.desy.de/sw/x86_64_gcc49_sl6/v02-00-01
-export CALICESOFT=/cvmfs/calice.desy.de/HEAD/x86_64_gcc49_sl6
-export PATH=${CALICESOFT}/build/myInstall/bin:${PATH}
-export LD_LIBRARY_PATH=${CALICESOFT}/build/myInstall/lib:${LD_LIBRARY_PATH}
+export CALICESOFT=/cvmfs/calice.desy.de/v04-14-02/x86_64_gcc49_sl6
+
 
 # -------------------------------------------------------------------- ---
 

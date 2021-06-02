@@ -3,14 +3,14 @@
 # for the installation located at [ /cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01 ]
 ################################################################################
 
-SET( ILC_HOME "/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01" CACHE PATH "Path to ILC Software" FORCE)
+SET( ILC_HOME "/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01-02" CACHE PATH "Path to ILC Software" FORCE)
 MARK_AS_ADVANCED( ILC_HOME )
 
 SET( CMAKE_PREFIX_PATH
 	${ILC_HOME}/lccd/v01-05;
-	${ILC_HOME}/Marlin/v01-17;
+	${ILC_HOME}/Marlin/v01-17-01;
 	${ILC_HOME}/MarlinUtil/v01-15-01;
-	${ILC_HOME}/MarlinReco/v01-26;
+	${ILC_HOME}/MarlinReco/v01-27;
 	${ILC_HOME}/PandoraPFANew/v03-13-02;
 	${ILC_HOME}/LCFIVertex/v00-08;
 	${ILC_HOME}/MarlinKinfit/v00-06;
@@ -20,27 +20,26 @@ SET( CMAKE_PREFIX_PATH
 	${ILC_HOME}/Clupatra/v01-03;
 	${ILC_HOME}/FCalClusterer/v01-00-01;
 	${ILC_HOME}/pathfinder/v00-06-01;
-	${ILC_HOME}/MarlinTPC/v01-06;
 	${ILC_HOME}/RAIDA/v01-09;
 	${ILC_HOME}/KalTest/v02-05;
 	${ILC_HOME}/KalDet/v01-14-01;
 	${ILC_HOME}/GBL/V02-02-00;
-	/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01/xercesc/v3.2.2/lib/cmake/XercesC;
-	/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01/DD4hep/v01-11-02/cmake;
+	/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01-02/xercesc/v3.2.2/lib/cmake/XercesC;
+	/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01-02/DD4hep/v01-11-02/cmake;
 	${ILC_HOME}/aidaTT/v00-10;
 	${ILC_HOME}/DDKalTest/v01-06;
 	${ILC_HOME}/CED/v01-09-03;
-	${ILC_HOME}/lcio/v02-13-01;
+	${ILC_HOME}/lcio/v02-14-02;
 	${ILC_HOME}/gear/v01-09;
 	${ILC_HOME}/sio/v00-00-02;
-	/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01/root/6.18.04/cmake;
-	/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01/CLHEP/2.3.4.3/lib/CLHEP-2.3.4.3;
-	/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01/Qt5/v5.13.1/lib/cmake/Qt5;
-	/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01/geant4/10.04.p03/lib/Geant4-10.4.3;/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01/geant4/10.04.p03/lib64/Geant4-10.4.3;
+	/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01-02/root/6.18.04/cmake;
+	/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01-02/CLHEP/2.3.4.3/lib/CLHEP-2.3.4.3;
+	/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01-02/Qt5/v5.13.1/lib/cmake/Qt5;
+	/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01-02/geant4/10.04.p03/lib/Geant4-10.4.3;/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01-02/geant4/10.04.p03/lib64/Geant4-10.4.3;
 	${ILC_HOME}/CondDBMySQL/CondDBMySQL_ILC-0-9-7;
 	${ILC_HOME}/ilcutil/v01-06;
-	/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01/boost/1.71.0/lib/cmake/Boost-1.71.0;
-	/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01/eigen/3.3.7/share/eigen3/cmake/;
+	/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01-02/boost/1.71.0/lib/cmake/Boost-1.71.0;
+	/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01-02/eigen/3.3.7/share/eigen3/cmake/;
 CACHE PATH "CMAKE_PREFIX_PATH" FORCE )
 
 
@@ -49,19 +48,19 @@ option(Boost_NO_BOOST_CMAKE "dont use cmake find module for boost" ON)
 set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g" CACHE STRING "" FORCE )
 set(CMAKE_CXX_STANDARD 17 CACHE STRING "C++ Standard" FORCE)
 # -- Cache variables from FastJet
-set(FastJet_DIR "/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01/FastJet/3.2.1" CACHE STRING "Path to FastJet" FORCE)
+set(FastJet_DIR "/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01-02/FastJet/3.2.1" CACHE STRING "Path to FastJet" FORCE)
 
 # -- Cache variables from root
-set(ROOT_DIR "/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01/root/6.18.04" CACHE STRING "Path to ROOT" FORCE)
+set(ROOT_DIR "/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01-02/root/6.18.04" CACHE STRING "Path to ROOT" FORCE)
 
 # -- Cache variables from gsl
-set(GSL_DIR "/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01/gsl/2.6" CACHE STRING "Path to GSL" FORCE)
+set(GSL_DIR "/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01-02/gsl/2.6" CACHE STRING "Path to GSL" FORCE)
 
 # -- Cache variables from mysql
 set(MySQL_DIR "/cvmfs/sft.cern.ch/lcg/releases/mysql/5.7.26-c3e26/x86_64-slc6-gcc8-opt" CACHE STRING "Path to MySQL directory" FORCE)
 
 # -- Cache variables from eigen
-set(EIGEN3_DIR "/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01/eigen/3.3.7" CACHE STRING "Path to Eigen3" FORCE)
+set(EIGEN3_DIR "/cvmfs/ilc.desy.de/sw/x86_64_gcc82_sl6/v02-01-02/eigen/3.3.7" CACHE STRING "Path to Eigen3" FORCE)
 
 # calice code installation directory
 

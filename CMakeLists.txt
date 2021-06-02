@@ -17,21 +17,22 @@ SET( ${PROJECT_NAME}_VERSION_PATCH 0 )
 # don't forget to update when releasing
 # e.g. SET( CALICE_USERLIB_version "v01-00-00" )
 
-SET( CALICE_USERLIB_version        "gcc82" )
-SET( CALICE_RECO_version           "gcc82" )
-SET( ROOTTREEWRITER_version        "gcc82" )
-SET( LABVIEW_CONVERTER_version     "gcc82" )
-SET( CALICE_ANALYSIS_version       "gcc82" )
-SET( CALICE_CALIB_version          "gcc82" )
-SET( CALICE_SIM_version            "gcc82" )
+SET( CALICE_USERLIB_version        "v06-13-01-gcc82" )
+SET( CALICE_RECO_version           "v06-15-gcc82" )
+SET( ROOTTREEWRITER_version        "v02-12-gcc82" )
+SET( LABVIEW_CONVERTER_version     "v01-05-gcc82" )
+SET( CALICE_ANALYSIS_version       "v01-11-gcc82" )
+SET( CALICE_CALIB_version          "v01-05-gcc82" )
+SET( CALICE_SIM_version            "v03-08-gcc82" )
 SET( CALICE_ROOTMACROS_version     "master" )
-SET( CALICE_STEERING_version       "master" )
-SET( CALICE_DD_TB_version          "master" )
-SET( FLCHCALSOFT_version           "gcc82" )
-SET( CALICE_CDDATA_version         "gcc82" )
-SET( CALICE_STANDALONEG4_version   "master" )
-SET( CALICE_DB_TOOLS_version       "gcc82" )
-SET( CALICE_PANDORA_version        "gcc82" )
+SET( CALICE_STEERING_version       "v01-05-01" )
+SET( CALICE_DD_TB_version          "v01-03-02" )
+SET( FLCHCALSOFT_version           "v01-02-01-gcc82" )
+SET( CALICE_CDDATA_version         "v01-09-01-gcc82" )
+SET( CALICE_STANDALONEG4_version   "v01-01" )
+SET( CALICE_DB_TOOLS_version       "v01-03-gcc82" )
+SET( CALICE_PANDORA_version        "v01-02-01-gcc82" )
+SET( CALICE_ML_version             "master" )
 
 # ----- download settings -----
 SET( CALICE_USERLIB_repository      "https://stash.desy.de/scm/calice/calice_userlib.git" )
@@ -48,7 +49,8 @@ SET( FLCHCALSOFT_repository         "https://stash.desy.de/scm/calice/flchcalsof
 SET( CALICE_CDDATA_repository       "https://stash.desy.de/scm/calice/calice_cddata.git" )
 SET( CALICE_STANDALONEG4_repository "https://stash.desy.de/scm/calice/calice_standaloneg4.git" )
 SET( CALICE_DB_TOOLS_repository     "https://stash.desy.de/scm/calice/calice_db_tools.git" )
-SET( CALICE_PANDORA_repository     "https://stash.desy.de/scm/calice/calice_pandora.git" )
+SET( CALICE_PANDORA_repository      "https://stash.desy.de/scm/calice/calice_pandora.git" )
+SET( CALICE_ML_repository           "https://stash.desy.de/scm/calice/calice_ml.git" )
 
 # ----- dependencies -----
 FIND_PACKAGE( ILCUTIL COMPONENTS ILCSOFT_CMAKE_MODULES QUIET )
@@ -299,6 +301,20 @@ ExternalProject_Add( CALICE_STANDALONEG4
     CMAKE_ARGS ${common_cmake_args}
     PREFIX calice_standaloneg4-prefix
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_standaloneg4
+    LIST_SEPARATOR %
+)
+
+# ----- calice ml macros package -----
+ExternalProject_Add( CALICE_ML
+    GIT_REPOSITORY ${CALICE_ML_repository}
+    GIT_TAG ${CALICE_ML_version}
+    UPDATE_COMMAND ""
+    PATCH_COMMAND ""
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND ""
+    INSTALL_COMMAND ""
+    PREFIX calice_ml-prefix
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/calice_ml
     LIST_SEPARATOR %
 )
 
